@@ -63,6 +63,7 @@ data.frame(term, xe,ye) -> belle
 belle %>% 
   filter(!str_detect(term, "(X|Y|L)$")) %>% 
   ggplot(aes(x = xe, y=ye, group = 1)) + 
+  geom_ribbon(data=subset(belle,xe>2),aes(ymax=ye),ymin=0,alpha=0.2) + 
   geom_line(data = bell, aes(x = x, y = y, group = 1), alpha = 0.3)+ 
   geom_vline(aes(xintercept = -2), linetype ="dashed", alpha =0.2) +
   geom_vline(aes(xintercept = 0), linetype ="dashed", alpha =0.2) +
